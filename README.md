@@ -1,2 +1,2 @@
-bastion_IP = 35.210.200.77
-someinternalhost_IP = 10.132.0.3
+bastion_IP = 35.204.149.219
+someinternalhost_IP = 10.164.0.3
