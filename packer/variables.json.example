@@ -3,6 +3,6 @@
 	"source_image_family": "ubuntu-1804-lts",
 	"image_description": "Twitter app base image. © 2018 Mark Petrov, Tests Ltd."
 	"disk_type": "pd-ssd",
-	"tags": "puma-server,twitter-app,devops"
+	"tags": "puma-server,twitter-app,devops",
 	"preemptible": "false"
 }
