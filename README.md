@@ -28,3 +28,5 @@ gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family=
 
 Команда gcloud для создания правила фаервола default-puma-server:
 gcloud compute --project=infra-219315 firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
+
+В main.tf описано добавление нескольких ssh-ключей в метаданные проекта. Если добавить ключ appuser_web через веб-интерфейс, при следующем terraform apply он будет удалён, поскольку не прописан в terraform. Таким образом, все изменения инфраструктуры должны производиться через код.
