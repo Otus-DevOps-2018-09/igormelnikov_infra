@@ -33,7 +33,7 @@ gcloud compute --project=infra-219315 firewall-rules create default-puma-server 
 
 При описании второго инстанса reddit-app2 мы имеем одинаковые конфигурации, каждую из которых придётся поддерживать и обновлять по отдельности, следя при этом за повторяемостью и проч. Кроме того, мы не можем воспользоваться managed группой инстансов в GCP.
 
-main.tf - описание группы инстансов reddit-app1, reddit-app2 etc. count = 2
+main.tf - описание группы инстансов reddit-app1, reddit-app2 etc.
 lb.tf - описание http-балансировщика
 outputs.tf:
 	all_app_external_ips - список внешних адресов каждого инстанса
