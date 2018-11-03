@@ -15,8 +15,24 @@ resource "google_compute_instance" "db" {
     access_config = {}
   }
 
-  metadata {
-    ssh-keys = "appuser:${file(var.public_key_path)}"
+  connection {
+    type        = "ssh"
+    user        = "appuser"
+    agent       = false
+    private_key = "${file(var.private_key_path)}"
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/mongod.conf"
+    destination = "/tmp/mongod.conf"
+  }
+
+  provisioner "remote-exec" {
+
+    inline = [
+      "sudo mv /tmp/mongod.conf /etc/mongod.conf",
+      "sudo service mongod restart",
+    ]
   }
 }
 

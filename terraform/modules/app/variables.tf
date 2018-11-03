@@ -2,6 +2,10 @@ variable public_key_path {
   description = "Path to the public key used to connect to the instance"
 }
 
+variable private_key_path {
+  description = "Path to the private key used for provisioner connection"
+}
+
 variable zone {
   description = "Zone"
 }
@@ -18,4 +22,8 @@ variable machine_type {
 
 variable network {
   description = "Network for instances"
+}
+
+variable db_internal_ip {
+  description = "Internal DB instance IP"
 }
