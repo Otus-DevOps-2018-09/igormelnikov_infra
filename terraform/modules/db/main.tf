@@ -14,8 +14,17 @@ resource "google_compute_instance" "db" {
     network       = "${var.network}"
     access_config = {}
   }
+}
+
+resource "null_resource" "provisioner-db" {
+  count = "${var.use_provisioner ? 1 : 0}"
+
+  triggers {
+    db_id = "google_compute_instance.db.id"
+  }
 
   connection {
+    host        = "${google_compute_instance.db.network_interface.0.access_config.0.assigned_nat_ip}"
     type        = "ssh"
     user        = "appuser"
     agent       = false
@@ -28,7 +37,6 @@ resource "google_compute_instance" "db" {
   }
 
   provisioner "remote-exec" {
-
     inline = [
       "sudo mv /tmp/mongod.conf /etc/mongod.conf",
       "sudo service mongod restart",

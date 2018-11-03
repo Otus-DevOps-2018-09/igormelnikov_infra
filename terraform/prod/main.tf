@@ -30,6 +30,6 @@ module "db" {
 
 module "vpc" {
   source        = "../modules/vpc"
-  source_ranges = ["95.79.254.234/32"]
+  source_ranges = ["5.164.211.64/32"]
   network       = "${var.network}"
 }

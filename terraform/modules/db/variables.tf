@@ -23,3 +23,8 @@ variable machine_type {
 variable network {
   description = "Network for instances"
 }
+
+variable use_provisioner {
+  description = "Enable the use of provisioner"
+  default     = "true"
+}

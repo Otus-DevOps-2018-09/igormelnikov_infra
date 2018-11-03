@@ -17,8 +17,13 @@ resource "google_compute_instance" "app" {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
   }
+}
+
+resource "null_resource" "provisioner-app" {
+  count = "${var.use_provisioner ? 1 : 0}"
 
   connection {
+    host        = "${google_compute_instance.app.network_interface.0.access_config.0.assigned_nat_ip}"
     type        = "ssh"
     user        = "appuser"
     agent       = false
@@ -36,6 +41,7 @@ resource "google_compute_instance" "app" {
 }
 
 data "template_file" "puma" {
+  count    = "${var.use_provisioner ? 1 : 0}"
   template = "${file("${path.module}/puma.service.tpl")}"
 
   vars {
