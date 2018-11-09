@@ -1,0 +1,10 @@
+plugin: gcp_compute
+projects:
+  - infra-219315
+filters: null
+keyed_groups:
+  - key: labels
+scopes:
+  - https://www.googleapis.com/auth/gcp-compute
+service_account_file: Infra-52b84a15aebf.json
+auth_kind: serviceaccount
