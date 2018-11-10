@@ -1,6 +1,6 @@
 ---
 - name: Configure App
-  hosts: _app_
+  hosts: app
   become: true
   vars:
     db_host: 10.164.0.2
