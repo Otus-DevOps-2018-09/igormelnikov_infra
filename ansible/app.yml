@@ -2,15 +2,12 @@
 - name: Configure App
   hosts: _app_
   become: true
-  vars:
-    db_host: 10.164.0.2
   tasks:
     - name: Add unit file for Puma
       copy:
         src: files/puma.service
         dest: /etc/systemd/system/puma.service
       notify: reload puma
-
     - name: Add config for DB connection
       template:
         src: templates/db_config.j2
