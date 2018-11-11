@@ -37,12 +37,15 @@ Startup script: файл `install.sh`
 При описании второго инстанса `reddit-app2` мы имеем одинаковые конфигурации, каждую из которых придётся поддерживать и обновлять по отдельности, следя при этом за повторяемостью и проч. Кроме того, мы не можем воспользоваться managed группой инстансов в GCP.
 
 `main.tf` - описание группы инстансов reddit-app1, reddit-app2 etc.
+
 `lb.tf` - описание http-балансировщика
+
 `outputs.tf:`
 	`all_app_external_ips` - список внешних адресов каждого инстанса
 	`lb_external_ip` - внешний адрес балансировщика
 ## Terraform-2
 `storage-bucket.tf` - описание двух бакетов GCP для хранения бакендов для stage и prod: `reddit-state-stage`, `reddit-state-prod`
+
 `stage/backend.tf`, `prod/backend.tf` - описание конфигурации бакенда для соответствующего окружения
 
 Для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
@@ -52,5 +55,7 @@ Startup script: файл `install.sh`
 Удалив репозиторий предыдущей командой `'rm -rf ~/reddit'`, с помощью плейбука мы заново клонировали репозиторий. Состояние системы изменилось, поэтому `changed=1`.
 
 Описания inventory - `ansible/inventory`, `inventory.ym`, `inventory.json`
+
 `clone.yml` - простой плейбук, клонирующий репозиторий
+
 `requirements.txt` - описание virtualenv для ansible
