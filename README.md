@@ -41,7 +41,9 @@ Startup script: файл `install.sh`
 `lb.tf` - описание http-балансировщика
 
 `outputs.tf:`
+
 	`all_app_external_ips` - список внешних адресов каждого инстанса
+
 	`lb_external_ip` - внешний адрес балансировщика
 ## Terraform-2
 `storage-bucket.tf` - описание двух бакетов GCP для хранения бакендов для stage и prod: `reddit-state-stage`, `reddit-state-prod`
@@ -51,7 +53,9 @@ Startup script: файл `install.sh`
 Для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
 ## Ansible-1
 Выполнение плейбука `clone.yml:`
+
 `appserver                  : ok=2    changed=1    unreachable=0    failed=0`
+
 Удалив репозиторий предыдущей командой `'rm -rf ~/reddit'`, с помощью плейбука мы заново клонировали репозиторий. Состояние системы изменилось, поэтому `changed=1`.
 
 Описания inventory - `ansible/inventory`, `inventory.ym`, `inventory.json`
