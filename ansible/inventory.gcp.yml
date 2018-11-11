@@ -2,13 +2,13 @@ plugin: gcp_compute
 projects:
   - infra-219315
 filters: null
-keyed_groups:
-  - key: labels
 hostnames:
   - name
 compose:
   ansible_host: networkInterfaces[0].accessConfigs[0].natIP
   internal_ip: networkInterfaces[0].networkIP
+groups:
+  app: "'app' in inventory_hostname"
 scopes:
   - https://www.googleapis.com/auth/gcp-compute
 service_account_file: Infra-52b84a15aebf.json
