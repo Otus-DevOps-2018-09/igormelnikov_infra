@@ -1,6 +1,6 @@
 ---
 - name: Configure App
-  hosts: _app_
+  hosts: app
   become: true
   tasks:
     - name: Add unit file for Puma

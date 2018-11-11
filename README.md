@@ -78,4 +78,4 @@ Startup script: файл `install.sh`
 - `packer_db.yml`
 - `packer_app.yml`
 
-Описание динамического инвентори GCP содержится в `inventory.gcp.yml` в корневой директории.
+Описание динамического инвентори GCP содержится в `inventory.gcp.yml`, который выбран в `ansible.cfg` по умолчанию.
