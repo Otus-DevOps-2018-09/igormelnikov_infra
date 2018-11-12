@@ -38,3 +38,8 @@ lb.tf - описание http-балансировщика
 outputs.tf:
 	all_app_external_ips - список внешних адресов каждого инстанса
 	lb_external_ip - внешний адрес балансировщика
+
+storage-bucket.tf - описание двух бакетов GCP для хранения бакендов для stage и prod: reddit-state-stage, reddit-state-prod
+stage/backend.tf, prod/backend.tf - описание конфигурации бакенда для соответствующего окружения
+
+для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
