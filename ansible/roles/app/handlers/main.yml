@@ -2,3 +2,5 @@
 # handlers file for app
 - name: reload puma
   systemd: name=puma state=restarted
+- name: reload ssh
+  systemd: name=sshd state=restarted
