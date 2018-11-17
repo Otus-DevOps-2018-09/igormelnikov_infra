@@ -93,3 +93,5 @@ Community-роль `jdauphant.nginx` вызывается в `app.yml` для д
 В `users.yml` описано создание пользователей; данные пользователей хранятся в зашифрованном Ansible Vault `environments/<env>/credentials.yml`.
 
 В `play-travis/test.sh` описан тестовый скрипт для докер-контейнера в Travis, вызывающий `packer validate`, `terraform validate`, `tflint` и `ansible-lint`.
+
+`site.yml` - основной плейбук для поднятия инфраструктуры, запускающий остальные.
