@@ -81,4 +81,15 @@ Startup script: файл `install.sh`
 Описание динамического инвентори GCP содержится в `inventory.gcp.yml`, который выбран в `ansible.cfg` по умолчанию.
 
 #### Ansible-3
+
 [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra.svg?branch=ansible-3)](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra)
+
+Ansible роли для `app` и `db` находятся в директории `roles` и вызываются с помощью `app.yml` и `dm.yml`.
+
+Окружения `stage` и `prod` находятся в директории `environments`. По умолчанию установлено окружение `stage`. Для обоих окружений используется динамический GCP инвентори `inventory.gcp.yml`.
+
+Community-роль `jdauphant.nginx` вызывается в `app.yml` для доступа к приложению по 80 порту.
+
+В `users.yml` описано создание пользователей; данные пользователей хранятся в зашифрованном Ansible Vault `environments/<env>/credentials.yml`.
+
+В `play-travis/test.sh` описан тестовый скрипт для докер-контейнера в Travis, вызывающий `packer validate`, `terraform validate`, `tflint` и `ansible-lint`.
