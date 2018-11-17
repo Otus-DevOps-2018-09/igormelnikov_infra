@@ -30,12 +30,12 @@
 	"provisioners": [
 		{
 			"type": "shell",
-			"script": "scripts/deploy.sh",
+			"script": "packer/scripts/deploy.sh",
 			"execute_command": "sudo -u appuser {{.Path}}"
 		},
 		{
 			"type": "file",
-			"source": "files/puma.service",
+			"source": "packer/files/puma.service",
 			"destination": "/home/appuser/"
 		},
 		{
