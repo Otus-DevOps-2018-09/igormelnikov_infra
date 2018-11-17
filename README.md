@@ -80,7 +80,7 @@ Startup script: файл `install.sh`
 
 Описание динамического инвентори GCP содержится в `inventory.gcp.yml`, который выбран в `ansible.cfg` по умолчанию.
 
-#### Ansible-3
+## Ansible-3
 
 [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra.svg?branch=ansible-3)](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra)
 
