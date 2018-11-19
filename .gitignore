@@ -5,3 +5,5 @@ packer/var*.json
 *.tfvars
 .terraform/
 ansible/virtualenv/
+*.retry
+ansible/Infra*.json

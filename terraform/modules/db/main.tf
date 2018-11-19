@@ -3,6 +3,9 @@ resource "google_compute_instance" "db" {
   machine_type = "${var.machine_type}"
   zone         = "${var.zone}"
   tags         = ["reddit-db"]
+  labels = {
+    "db" = ""
+  }
 
   boot_disk {
     initialize_params {
