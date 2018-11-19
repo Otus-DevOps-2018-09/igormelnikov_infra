@@ -28,7 +28,7 @@ gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family=
 
 Команда gcloud для создания правила фаервола default-puma-server:
 gcloud compute --project=infra-219315 firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
-
+===Terraform-1===
 В main.tf описано добавление нескольких ssh-ключей в метаданные проекта. Если добавить ключ appuser_web через веб-интерфейс, при следующем terraform apply он будет удалён, поскольку не прописан в terraform. Таким образом, все изменения инфраструктуры должны производиться через код.
 
 При описании второго инстанса reddit-app2 мы имеем одинаковые конфигурации, каждую из которых придётся поддерживать и обновлять по отдельности, следя при этом за повторяемостью и проч. Кроме того, мы не можем воспользоваться managed группой инстансов в GCP.
@@ -38,8 +38,17 @@ lb.tf - описание http-балансировщика
 outputs.tf:
 	all_app_external_ips - список внешних адресов каждого инстанса
 	lb_external_ip - внешний адрес балансировщика
-
+===Terraform-2===
 storage-bucket.tf - описание двух бакетов GCP для хранения бакендов для stage и prod: reddit-state-stage, reddit-state-prod
 stage/backend.tf, prod/backend.tf - описание конфигурации бакенда для соответствующего окружения
 
-для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
+Для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
+===Ansible-1===
+Выполнение плейбука clone.yml:
+PLAY RECAP ***************************************************************************************************
+appserver                  : ok=2    changed=1    unreachable=0    failed=0   
+Удалив репозиторий предыдущей командой 'rm -rf ~/reddit', с помощью плейбука мы заново клонировали репозиторий. Состояние системы изменилось, поэтому changed=1.
+
+Описания inventory - ansible/inventory, inventory.yml, inventory.json
+clone.yml - простой плейбук, клонирующий репозиторий
+requirements.txt - описание virtualenv для ansible

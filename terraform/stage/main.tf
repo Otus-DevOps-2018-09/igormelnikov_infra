@@ -17,6 +17,7 @@ module "app" {
   app_disk_image   = "${var.app_disk_image}"
   network          = "${var.network}"
   db_internal_ip   = "${module.db.db_internal_ip}"
+  use_provisioner  = "false"
 }
 
 module "db" {
@@ -26,6 +27,7 @@ module "db" {
   zone             = "${var.zone}"
   db_disk_image    = "${var.db_disk_image}"
   network          = "${var.network}"
+  use_provisioner  = "false"
 }
 
 module "vpc" {
