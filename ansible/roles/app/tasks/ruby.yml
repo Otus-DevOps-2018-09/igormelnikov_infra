@@ -1,0 +1,13 @@
+---
+- name: Update apt
+  apt:
+    update_cache: yes
+  tags: ruby
+- name: Install ruby and rubygems
+  apt:
+    name: "{{ item }}"
+  loop:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby

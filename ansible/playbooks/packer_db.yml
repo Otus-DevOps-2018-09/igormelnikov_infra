@@ -17,4 +17,4 @@
       apt:
         name: mongodb-org
     - name: Enable mongod
-      systemd: name=mongod enabled=yes
+      systemd: name=mongod enabled=yes state=started
