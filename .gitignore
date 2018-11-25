@@ -8,7 +8,7 @@ ansible/virtualenv/
 *.retry
 ansible/Infra*.json
 jdauphant.nginx
-db-role-infra
+db
 # Vagrant & molecule
 .vagrant/
 *.log
