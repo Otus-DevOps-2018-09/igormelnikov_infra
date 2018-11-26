@@ -1,15 +1,7 @@
 ---
-- name: Install Ruby
+- name: Install app base
   hosts: all
   become: true
-  tasks:
-    - name: Update apt
-      apt:
-        update_cache: yes
-    - name: Install Ruby
-      apt:
-        name: "{{ item }}"
-      loop:
-        - ruby-full
-        - ruby-bundler
-        - build-essential
+
+  roles:
+    - app

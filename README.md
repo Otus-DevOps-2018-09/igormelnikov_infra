@@ -97,3 +97,17 @@ Community-роль `jdauphant.nginx` вызывается в `app.yml` для д
 `site.yml` - основной плейбук для поднятия инфраструктуры, запускающий остальные.
 
 В `play-travis/test.sh` описан тестовый скрипт для докер-контейнера в Travis, вызывающий `packer validate`, `terraform validate`, `tflint` и `ansible-lint`.
+
+## Ansible-4
+
+В `Vagrantfile` описана инфраструктура `app`/`db` для тестов на локальной машине с хостами `appserver` и `dbserver`. Производится установка **python** и провиженинг с помощью **Ansible.** Для `appserver` добавлена конфигурация **nginx.**
+
+`packer_app.yml` теперь использует роль `app` (тэг `ruby`).
+
+`packer_db.yml` теперь использует роль `db` (тэг `install`).
+
+Переменная `deploy_user` в `app` -  имя пользователя, в домашней директории какого будет производиться конфигурация. Значение по умолчанию - `appuser`.
+
+Для `db` описаны тесты с помощью **molecule** и **Testinfra.**
+
+Роль `db` вынесена в отдельный репозиторий [igormelnikov/db](https://github.com/igormelnikov/db), подключение описано в `requirements.yml` обоих окружений. Для репозитория подключен **TravisCI,** а также оповещения в чат.
