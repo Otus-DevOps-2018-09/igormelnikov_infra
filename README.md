@@ -82,8 +82,6 @@ Startup script: файл `install.sh`
 
 ## Ansible-3
 
-[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra.svg?branch=ansible-3)](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra)
-
 Ansible роли для `app` и `db` находятся в директории `roles` и вызываются с помощью `app.yml` и `dm.yml`.
 
 Окружения `stage` и `prod` находятся в директории `environments`. По умолчанию установлено окружение `stage`. Для обоих окружений используется динамический GCP инвентори `inventory.gcp.yml`.
@@ -99,6 +97,8 @@ Community-роль `jdauphant.nginx` вызывается в `app.yml` для д
 В `play-travis/test.sh` описан тестовый скрипт для докер-контейнера в Travis, вызывающий `packer validate`, `terraform validate`, `tflint` и `ansible-lint`.
 
 ## Ansible-4
+
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra.svg?branch=ansible-4)](https://travis-ci.com/Otus-DevOps-2018-09/igormelnikov_infra)
 
 В `Vagrantfile` описана инфраструктура `app`/`db` для тестов на локальной машине с хостами `appserver` и `dbserver`. Производится установка **python** и провиженинг с помощью **Ansible.** Для `appserver` добавлена конфигурация **nginx.**
 
