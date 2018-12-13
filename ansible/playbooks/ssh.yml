@@ -1,0 +1,14 @@
+- name: Enable ssh password authentication
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Add config file for ssh
+      copy:
+        src: ../files/sshd_config
+        dest: /etc/ssh/sshd_config
+      notify: reload ssh
+
+  handlers:
+    - name: reload ssh
+      systemd: name=sshd state=restarted

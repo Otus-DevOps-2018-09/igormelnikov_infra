@@ -7,3 +7,4 @@ packer/var*.json
 ansible/virtualenv/
 *.retry
 ansible/Infra*.json
+jdauphant.nginx
