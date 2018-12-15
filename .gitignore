@@ -8,3 +8,11 @@ ansible/virtualenv/
 *.retry
 ansible/Infra*.json
 jdauphant.nginx
+db
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
